@@ -1181,16 +1181,16 @@ print("Nation Mean Population %s" % "{:,.0f}".format(censusByZipCd2015_df["Pop_T
 print("Random Sample Mean Population %s" % "{:,.0f}".format(no_sf_subset["Pop_Total"].mean()))
 ```
 
-    White Ratio: t= -0.071135 p-value= 0.943303
-    Black Ratio: t= 0.643313 p-value= 0.520150
-    Native Ratio: t= -1.936436 p-value= 0.053060
-    Asian Ratio: t= -0.477477 p-value= 0.633114
-    Islander Ratio: t= 0.360414 p-value= 0.718604
-    TwoRace Ratio: t= 0.463683 p-value= 0.642963
-    Hispanic Ratio: t= 0.447966 p-value= 0.654262
+    White Ratio: t= 0.454698 p-value= 0.649413
+    Black Ratio: t= -0.892649 p-value= 0.372233
+    Native Ratio: t= 0.553055 p-value= 0.580334
+    Asian Ratio: t= -1.198806 p-value= 0.230851
+    Islander Ratio: t= -0.118415 p-value= 0.905760
+    TwoRace Ratio: t= -0.348148 p-value= 0.727793
+    Hispanic Ratio: t= 0.380133 p-value= 0.703917
     SF Mean Population 23,283
     Nation Mean Population 10,947
-    Random Sample Mean Population 10,670
+    Random Sample Mean Population 11,309
     
 
 ### Census Data - Random Sample
@@ -1218,22 +1218,22 @@ print("Random No SF Sample Mean Population %s" % "{:,.0f}".format(no_sf_subset["
 print("Random Sample Mean Population %s" % "{:,.0f}".format(random_subset["Pop_Total"].mean()))
 ```
 
-    White Ratio: t= -0.207717 p-value= 0.835487
-    Black Ratio: t= 0.031116 p-value= 0.975182
-    Native Ratio: t= -0.656397 p-value= 0.511701
-    Asian Ratio: t= 0.025157 p-value= 0.979934
-    Islander Ratio: t= 1.186187 p-value= 0.235795
-    TwoRace Ratio: t= 0.642511 p-value= 0.520670
-    Hispanic Ratio: t= 0.462637 p-value= 0.643713
+    White Ratio: t= 0.074044 p-value= 0.940989
+    Black Ratio: t= -0.844349 p-value= 0.398651
+    Native Ratio: t= 1.559404 p-value= 0.119177
+    Asian Ratio: t= 0.176499 p-value= 0.859933
+    Islander Ratio: t= 0.025392 p-value= 0.979747
+    TwoRace Ratio: t= -0.852518 p-value= 0.394105
+    Hispanic Ratio: t= -0.452645 p-value= 0.650890
     SF Mean Population 23,283
     Nation Mean Population 10,947
-    Random No SF Sample Mean Population 10,670
-    Random Sample Mean Population 10,554
+    Random No SF Sample Mean Population 11,309
+    Random Sample Mean Population 11,464
     
 
 
 ```python
-plt.figure(figsize=(12,8))
+plt.figure(figsize=(8,6))
 popRatioLabels_v = ["White Ratio", "Black Ratio","Native Ratio","Asian Ratio","Islander Ratio","TwoRace Ratio","Hispanic Ratio"]
 
 getBarGraphSFAndNationComp(plt, popRatioLabels_v, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Race Composition", "Percentage of Population", "90", 111)
@@ -1246,7 +1246,7 @@ plt.show()
 
 
 ```python
-plt.figure(figsize=(12,8))
+plt.figure(figsize=(8,6))
 whiteNonWhiteRatioLabels_v = ["White Ratio", "Non-White Ratio"]
 
 getBarGraphSFAndNationComp(plt, whiteNonWhiteRatioLabels_v, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "White and Non-White Average Ratios", "Percentage of Population", "0", 111)
@@ -1284,7 +1284,7 @@ print("Nation Mean - Education: %s" % "{:,.0f}".format(censusByZipCd2015_df["Edu
 
 
 ```python
-plt.figure(figsize=(18,8))
+plt.figure(figsize=(8,6))
 popRatioLabels_v = ["Edu_HSAndBelow_Ratio", "Edu_Undergrad_Ratio","Edu_Graduate_Ratio"]
 getBarGraphSFAndNationComp(plt, popRatioLabels_v, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Education Level Composition", "Percentage of Population", "0", 111)
 plt.show()
@@ -1296,7 +1296,7 @@ plt.show()
 
 
 ```python
-plt.figure(figsize=(18,8))
+plt.figure(figsize=(8,6))
 popRatioLabels_v = ["Edu_HSAndBelow_Ratio", "Edu_AboveHS_Ratio"]
 getBarGraphSFAndNationComp(plt, popRatioLabels_v, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Education Level Composition", "Percentage of Population", "0", 111)
 plt.show()
@@ -1383,7 +1383,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["B19013_001E"].dropna()
 
 
 
-    Ttest_1sampResult(statistic=0.052539330248187723, pvalue=0.95810865564596626)
+    Ttest_1sampResult(statistic=-0.6575896366346351, pvalue=0.51093993358823553)
 
 
 
@@ -1399,7 +1399,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["B19013_001E"].dropna(
 
 
 
-    Ttest_1sampResult(statistic=-0.26769688379090423, pvalue=0.78898371577387272)
+    Ttest_1sampResult(statistic=-0.88129159114593492, pvalue=0.3783535902881876)
 
 
 
@@ -1415,8 +1415,8 @@ print("Random Subset Mean %s" % "${:,.0f}".format(pd.to_numeric(random_subset["B
     Median income
     SF Mean $55,940 
     Nation Mean $53,434
-    Random No SF Subset Mean $53,471
-    Random Subset Mean $53,245
+    Random No SF Subset Mean $52,992
+    Random Subset Mean $52,851
     
 
 
@@ -1431,7 +1431,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["B19301_001E"].dropna()
 
 
 
-    Ttest_1sampResult(statistic=0.051149658199459026, pvalue=0.95921522682493732)
+    Ttest_1sampResult(statistic=-1.2458204035213243, pvalue=0.21308721087865876)
 
 
 
@@ -1447,7 +1447,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["B19301_001E"].dropna(
 
 
 
-    Ttest_1sampResult(statistic=-0.34269321584390916, pvalue=0.73189277700009514)
+    Ttest_1sampResult(statistic=-0.16886413999472674, pvalue=0.86593346213535338)
 
 
 
@@ -1463,8 +1463,8 @@ print("Random Subset Mean %s" % "${:,.0f}".format(pd.to_numeric(random_subset["B
     Income per capita
     SF Mean $27,256 
     Nation Mean $26,867
-    Random No SF Mean $26,887 
-    Random Subset Mean $26,747
+    Random No SF Mean $26,436 
+    Random Subset Mean $26,802
     
 
 
@@ -1509,7 +1509,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["LaborForce_Ratio"].dro
 
 
 
-    Ttest_1sampResult(statistic=-1942149.8868873215, pvalue=0.0)
+    Ttest_1sampResult(statistic=-2149414.0920477319, pvalue=0.0)
 
 
 
@@ -1525,7 +1525,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["LaborForce_Ratio"].dr
 
 
 
-    Ttest_1sampResult(statistic=-2119556.8761309404, pvalue=0.0)
+    Ttest_1sampResult(statistic=-2102039.606215944, pvalue=0.0)
 
 
 
@@ -1539,13 +1539,13 @@ print("Random Labor Force Rate %f" % (random_subset["LaborForce_Ratio"].mean()*1
 
     SF Labor Force Rate 63.436950
     Nation Labor Force Rate 60.011797
-    Random No SF Subset SF Labor Force Rate 59.600970
-    Random Labor Force Rate 60.331018
+    Random No SF Subset SF Labor Force Rate 59.987532
+    Random Labor Force Rate 59.722508
     
 
 
 ```python
-plt.figure(figsize=(18,12))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationInd(plt, ["LaborForce_Ratio"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "% in Labor Force", "Percentage of Population", "0", 111, 0,100, 100)
 plt.show()
 ```
@@ -1582,7 +1582,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["Employment_Ratio"].dro
 
 
 
-    Ttest_1sampResult(statistic=-2315296.5652428563, pvalue=0.0)
+    Ttest_1sampResult(statistic=-2096498.8817460348, pvalue=0.0)
 
 
 
@@ -1598,7 +1598,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["Employment_Ratio"].dr
 
 
 
-    Ttest_1sampResult(statistic=-2292801.9297156087, pvalue=0.0)
+    Ttest_1sampResult(statistic=-2379277.0102371559, pvalue=0.0)
 
 
 
@@ -1612,13 +1612,13 @@ print("Random Employment Rate %f" % (random_subset["Employment_Ratio"].mean()*10
 
     SF Employment Rate 91.229091
     Nation Employment Rate 91.867127
-    Random No SF Subset SF Employment Rate 91.899959
-    Random Employment Rate 92.034977
+    Random No SF Subset SF Employment Rate 91.571155
+    Random Employment Rate 91.761579
     
 
 
 ```python
-plt.figure(figsize=(18,6))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationInd(plt, ["Employment_Ratio"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "% Employed", "Percentage of Population", "0", 111, 0,100, 100)
 plt.show()
 ```
@@ -1657,7 +1657,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["B25077_001E"].dropna()
 
 
 
-    Ttest_1sampResult(statistic=0.594462992554466, pvalue=0.55232792447025469)
+    Ttest_1sampResult(statistic=-1.6892461877426068, pvalue=0.09146277926754981)
 
 
 
@@ -1673,7 +1673,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["B25077_001E"].dropna(
 
 
 
-    Ttest_1sampResult(statistic=-0.17263772106823799, pvalue=0.86296906335590062)
+    Ttest_1sampResult(statistic=0.17423184333419561, pvalue=0.86171609667357152)
 
 
 
@@ -1689,14 +1689,14 @@ print("Random Subset Mean %s" % "${:,.0f}".format(pd.to_numeric(random_subset["B
     Median home value
     SF Mean $198,718 
     Nation Mean $174,909
-    Random No SF Subset Mean $177,752 
-    Random Subset Mean $174,125
+    Random No SF Subset Mean $168,123 
+    Random Subset Mean $175,780
     
 
 
 ```python
-plt.figure(figsize=(18,6))
-getBarGraphSFAndNationInd(plt, ["B25077_001E"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Median Home Value", "Dollars", "0", 111, 150000,20000, 1)
+plt.figure(figsize=(8,6))
+getBarGraphSFAndNationInd(plt, ["B25077_001E"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Median Home Value", "Dollars", "0", 111, 150000,200000, 1)
 plt.show()
 ```
 
@@ -1732,7 +1732,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["incomeOwning"].dropna(
 
 
 
-    Ttest_1sampResult(statistic=39.087070550678007, pvalue=6.1561181049498593e-204)
+    Ttest_1sampResult(statistic=37.029886502923645, pvalue=1.8455571124836755e-191)
 
 
 
@@ -1748,7 +1748,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["incomeOwning"].dropna
 
 
 
-    Ttest_1sampResult(statistic=35.77089330236663, pvalue=6.4287550780326114e-182)
+    Ttest_1sampResult(statistic=37.814935074336816, pvalue=2.0004464015307022e-196)
 
 
 
@@ -1792,7 +1792,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(no_sf_subset["incomeRenting"].dropna
 
 
 
-    Ttest_1sampResult(statistic=-0.33479454176579021, pvalue=0.73785468958800238)
+    Ttest_1sampResult(statistic=-0.52672927023468452, pvalue=0.59850328653028617)
 
 
 
@@ -1808,7 +1808,7 @@ stats.ttest_1samp(a=pd.Series(pd.to_numeric(random_subset["incomeRenting"].dropn
 
 
 
-    Ttest_1sampResult(statistic=1.6318789688742126, pvalue=0.10303814951155693)
+    Ttest_1sampResult(statistic=0.31768208327280123, pvalue=0.75079461702977823)
 
 
 
@@ -1840,8 +1840,8 @@ print("Nation Mean %s" % "{:,.2f}%".format(pd.to_numeric(censusByZipCd2015_df["i
     Percentage of income towards housing - owning
     SF Mean 33.47% 
     Nation Mean 31.23%
-    Random No SF Subset Mean 31.45% 
-    Random Subset Mean 31.51%
+    Random No SF Subset Mean 30.98% 
+    Random Subset Mean 31.11%
     Percentage of income towards housing - renting
     SF Mean 20.89% 
     Nation Mean 19.63%
@@ -1861,7 +1861,7 @@ plt.show()
 
 
 ```python
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationInd(plt, ["incomeOwning"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "incomeOwning", "Percentage of Population", "0", 111, 0,35,100)
 plt.show()
 ```
@@ -1872,7 +1872,7 @@ plt.show()
 
 
 ```python
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationInd(plt, ["incomeRenting"], sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "incomeRenting", "Percentage of Population", "0", 111, 0,25,100)
 plt.show()
 ```
@@ -1936,7 +1936,7 @@ occupationLabels = ["Mgmt_Business_Financial", \
                     "Natural_Resources", \
                     "Farming_Fishing_Forestry"
                    ]
-plt.figure(figsize=(18,12))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationComp(plt, occupationLabels, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Select Occupation Composition", "Percentage of Population", "0", 111)
 plt.show()
 ```
@@ -1952,7 +1952,7 @@ occupationLabels = ["Service", \
                     "Sales_and_Office", \
                     "Office_and_Admin_Support"
                    ]
-plt.figure(figsize=(18,12))
+plt.figure(figsize=(8,6))
 getBarGraphSFAndNationComp(plt, occupationLabels, sfcensus, censusByZipCd2015_df, no_sf_subset, random_subset, "Select Occupation Composition", "Percentage of Population", "0", 111)
 plt.show()
 ```
